@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão de Play/Pause Arredondado</title>
+  <style>
+    /* Estilo do botão */
+    .play-button {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #4CAF50; /* Cor do botão */
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    .play-button:hover {
+      background-color: #45a049; /* Cor ao passar o mouse */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão de Play/Pause -->
+  <button class="play-button" onclick="togglePlay()" id="playPauseButton">
+    ▶️
+  </button>
+
+  <!-- Elemento de áudio oculto -->
+  <audio id="audio">
+    <source src="caminho/para/sua-musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
+  <script>
+    // Função para tocar ou pausar a música
+    const audio = document.getElementById("audio");
+    const playPauseButton = document.getElementById("playPauseButton");
+    let isPlaying = false;
+
+    function togglePlay() {
+      if (isPlaying) {
+        audio.pause();
+        playPauseButton.innerHTML = '▶️'; // Altera para ícone de play
+      } else {
+        audio.play();
+        playPauseButton.innerHTML = '⏸️'; // Altera para ícone de pause
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Atualiza o estado do botão quando a música para
+    audio.onended = () => {
+      isPlaying = false;
+      playPauseButton.innerHTML = '▶️'; // Volta para o ícone de play quando a música termina
+    };
+  </script>
+
+</body>
+</html>

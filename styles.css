@@ -1,0 +1,287 @@
+	
+	/* Classes base */
+	
+	img{
+		vertical-align: middle;
+	}
+	
+	body {
+		font-family: tahoma; 
+		margin: 0;
+	}
+	
+	p{
+		font-family: tahoma;
+	}
+	
+	video{
+		width:	800px;
+		height:	600px;
+	}
+	
+	table{
+		border: 3px solid;
+		width: 100%;
+	}
+	
+	ul{
+		list-style-type:none;
+	}
+	
+	a:hover{
+		color: orange;
+	}
+	
+	
+	/* Classes especificas */
+	
+	img.tamanho1{
+		max-width: 300px;
+		position: relative;
+		vertical-align: middle;
+	}
+	
+	a.tipo2{
+		background-color: black;
+		color: black;
+		padding-left: 150px;
+		padding-right: 150px;
+		padding-top: 150px;
+		padding-bottom: 300px;
+		text-decoration: none;
+		display: inline-block;
+	}
+	
+	a.tipo2:hover{
+		Position:relative;
+		animation: mymove 1.5s;
+		animation-fill-mode: forwards;
+		animation-timing-function: linear;
+		animation-iteration-count: 1;		
+	}
+	
+	table.tabela1{
+		background-color: black;
+		width: 100%;
+	}
+	
+	table.tabela2{
+		border: 2; 
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	
+	td.tipo1{
+		width: 20%;
+	}
+	
+	td.tipo2{
+		width: 40%;
+	}
+	
+	td.tipo3{
+		width: 15%;
+	}
+	
+	td.tipo4{
+		width: 60%;
+	}
+
+	.highlight:hover{
+		filter:	brightness(1.3);
+	}
+	
+	.container {
+	  max-width: 2500px;
+	  position: relative;
+	  margin: auto;
+	}
+	
+	.fundo{
+		background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagens/BG.png');
+		background-repeat: repeat;
+		background-position: center;
+	}
+	
+	/* Caixa de decoracao */
+	
+	.box-container{
+		height: 400px;
+		width: 300px;
+	}
+	
+	.box1 {
+		border: 0px;
+		padding: 20px;
+		width: 100%;
+		margin: 20px auto;
+	}
+	
+	.box1:hover {
+		border: 0px;
+		padding: 20px;
+		height: 400px;	
+		width: 100%;
+		margin: 20px auto;
+		box-shadow: 0px 4px 20px #888888;
+	}
+	
+	/* Animação do botão da caixa */
+	
+	@keyframes mymove {
+	  0%   {left: 0px; top: 0px;}
+	  100% {left: 0px; top: 200px;}
+	}
+	
+	
+	/* Carrossel teste */
+		
+        /* Estilo do contêiner do carrossel */
+        .carrossel{
+            position: relative;
+            width: 1000px;
+			height: 500px;
+            overflow: hidden;
+            border: 0px solid #000;
+            border-radius: 0px;
+			margin: auto;
+        }
+		
+        /* Imagens do carrossel */
+        .carrossel tr{
+			text-align:center;
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+		
+        /* Imagem ativa */
+        .carrossel tr.active{
+            display: block;
+			background-color: white;
+        }
+		
+        /* Botões de navegação */
+        .prevCar, .nextCar {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            color: white;
+            font-size: 30px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            transition: 0.6s ease;
+        }
+		
+        /* Posicionando os botões */
+        .prevCar {
+            left: 10px;
+        }
+		
+        .nextCar {
+            right: 10px;
+        }
+		
+        /* Hover nos botões */
+        .prevCar:hover, .nextCar:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+	
+	
+	/* Slideshow */
+	
+	*{box-sizing: border-box}
+	
+	.mySlides {display: none}
+
+	/* Slideshow container */
+	.slideshow-container {
+	  max-width: 1000px;
+	  position: relative;
+	  margin: auto;
+	}
+
+	/* Next & previous buttons */
+	.prev, .next {
+	  cursor: pointer;
+	  position: absolute;
+	  top: 50%;
+	  width: auto;
+	  padding: 16px;
+	  margin-top: -22px;
+	  color: white;
+	  font-weight: bold;
+	  font-size: 18px;
+	  transition: 0.6s ease;
+	  border-radius: 0 3px 3px 0;
+	  user-select: none;
+	}
+	
+	/* Position the "next button" to the right */
+	.next {
+	  right: 0;
+	  border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover, .next:hover {
+	  background-color: rgba(0,0,0,0.8);
+	}
+
+	/* Caption text */
+	.text {
+	  color: #f2f2f2;
+	  font-size: 15px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  bottom: 8px;
+	  width: 100%;
+	  text-align: center;
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+	  color: #f2f2f2;
+	  font-size: 12px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  top: 0;
+	}
+
+	/* The dots/bullets/indicators */
+	.dot {
+	  cursor: pointer;
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbb;
+	  border-radius: 50%;
+	  display: inline-block;
+	  transition: background-color 0.6s ease;
+	}
+
+	.active, .dot:hover {
+	  background-color: #717171;
+	}
+
+	/* Fading animation */
+	.fade {
+	  animation-name: fade;
+	  animation-duration: 1.5s;
+	}
+
+	@keyframes fade {
+	  from {opacity: .4} 
+	  to {opacity: 1}
+	}
+
+	/* On smaller screens, decrease text size */
+	@media only screen and (max-width: 300px) {
+	  .prev, .next,.text {font-size: 11px}
+	}
