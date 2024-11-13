@@ -292,7 +292,7 @@
 	/* Estilos gerais da barra de pesquisa */
 	.search-bar {
 		display: flex;                    /* Alinha o campo e o botão lado a lado */
-		width: 600px;                     /* Largura da barra de pesquisa */
+		width: 800px;                     /* Largura da barra de pesquisa */
 		border: 2px solid #4CAF50;        /* Borda com cor */
 		border-radius: 25px;              /* Borda arredondada */
 		overflow: hidden;                 /* Esconde qualquer conteúdo extra */
@@ -321,3 +321,64 @@
 	.search-bar button:hover {
 		background-color: #E0E0E0;        /* Cor de fundo no hover */
 	}
+	
+	.search-box {
+	  position: absolute;
+	  top : 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background: #2f3640;
+	  height: 60px;
+	  border-radius: 40px;
+	  padding: 0px;
+  
+	}
+
+	.search-box:hover > .search-text{
+	  width: 350px;
+	  padding: 0 6px;
+	}
+
+	.search-box:hover > .search-btn{
+	  background: white;
+	  color: black;
+	  
+	}
+
+	.search-btn {
+	  color: #e84118;
+	  float: right;
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 50%;
+	  background: #2f3640;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  transition: 0.4s;
+	  cursor: pointer;
+	  text-decoration: none;
+	  
+	}
+	
+	.search-btn > i {
+	  fontsize: 30px;
+	}
+
+	.search-text {
+	  border: none;
+	  background: none;
+	  outline: none;
+	  float: left;
+	  padding: 0;
+	  color: white;
+	  font-size: 16px;
+	  font-weight: normal;
+	  transition: 0.4s;
+	  line-height: 60px;
+	  width: 0px;
+	}
+  
+  
+  
+}
