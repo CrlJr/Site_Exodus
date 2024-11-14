@@ -8,13 +8,13 @@
 		
 		<!-- Menu superior onde ficará a barra de pesquisa, login, etc.  -->
 		<div class="container">
-			<table style="background-color: rgba(166, 166, 166, 0.5);">
+			<table style="background-color: rgba(255, 255, 179, 0.55);">
 				<tr>
 					<td class="tipo1" align="left"><img src="imagens/logo.png" width="150px"></img></td>
 					<td align="left" valign="center">
 						<form>
 							<div class = 'search-box'>
-								<input class = "search-text" type="text" placeholder = "Digite o que deseja encontrar...">
+								<input oninput="ManterAberto()" class = "search-text" type="text" placeholder = "Digite o que deseja encontrar...">
 								<a href="#" class = "search-btn">
 									<i class="fas fa-search"></i>
 								</a>
@@ -24,7 +24,6 @@
 					<td class="tipo1" align="right">
 						<img src="imagens/icones/login.png" width="50px">Teste</img>
 					</td>
-					<td width="50px"></td>
 					<td class="tipo1" align="left">
 						<img src="imagens/icones/cestacompras.png" width="50px">Teste</img>
 					</td>
@@ -35,8 +34,38 @@
 	
 	<body>
 		<div class="container">
+			<br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+			<br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
+			<!-- Uma apresentação onde podemos colocar imagens tipo banners para chamar atenção e deixar o site
+			mais estiloso.-->
+			<div class="slideshow-container">
+				<div class="mySlides fade">
+				  <img src="img1.jpg" class="image-size">
+				</div>
 
-			<img src=""></img>
+				<div class="mySlides fade">
+				  <img src="img2.jpg" class="image-size">
+				</div>
+
+				<div class="mySlides fade">
+				  <img src="img3.jpg" class="image-size">
+				</div>
+				<!-- Botões para mudar o slide. -->
+				<a class="prev" onclick="plusSlides(-1), onOff=true">❮</a>
+				<a class="next" onclick="plusSlides(1), onOff=true">❯</a>
+				
+				<div style="text-align:center">
+				  <span class="dot" onclick="currentSlide(1), onOff=true"></span> 
+				  <span class="dot" onclick="currentSlide(2), onOff=true"></span> 
+				  <span class="dot" onclick="currentSlide(3), onOff=true"></span> 
+				</div>
+			</div>
+			
+			<br>
+			<!-- Parte do código para fazer mudar o slide ao clicar(evento onclick). -->
+			
+			
+			<br> <br>
 			
 			<!-- Tabela de imagens onde pode ficar as imagens que mostram algumas categorias. -->
 			<table>
@@ -153,41 +182,6 @@
 			<button class="nextCar" onclick="mudarImagem(1)">&#10095;</button>
 		</div>
 		
-		<br> <br> <br>
-		<br> <br> <br>
-		<!-- Uma apresentação onde podemos colocar imagens tipo banners para chamar atenção e deixar o site
-			mais estiloso.-->
-		<div class="slideshow-container">
-			<div class="mySlides fade">
-			  <div class="numbertext">1 / 3</div>
-			  <img src="img1.jpg" style="width:100%">
-			  <div class="text">Caption Text</div>
-			</div>
-
-			<div class="mySlides fade">
-			  <div class="numbertext">2 / 3</div>
-			  <img src="img2.jpg" style="width:100%">
-			  <div class="text">Caption Two</div>
-			</div>
-
-			<div class="mySlides fade">
-			  <div class="numbertext">3 / 3</div>
-			  <img src="img3.jpg" style="width:100%">
-			  <div class="text">Caption Three</div>
-			</div>
-			<!-- Botões para mudar o slide. -->
-			<a class="prev" onclick="plusSlides(-1), onOff=true">❮</a>
-			<a class="next" onclick="plusSlides(1), onOff=true">❯</a>
-		</div>
-		
-		<br>
-		<!-- Parte do código para fazer mudar o slide ao clicar(evento onclick). -->
-		<div style="text-align:center">
-		  <span class="dot" onclick="currentSlide(1), onOff=true"></span> 
-		  <span class="dot" onclick="currentSlide(2), onOff=true"></span> 
-		  <span class="dot" onclick="currentSlide(3), onOff=true"></span> 
-		</div>
-		
 		<br><br><br>
 	</div>
 		
@@ -267,6 +261,22 @@
 
 				// Mostra a nova imagem
 				imagens[indiceAtual].classList.add('active');
+			}
+		</script>
+		
+		<script>
+			let timer2 = setInterval(ManterAberto, 1000);
+			// Seleciona o campo de texto e a caixa de pesquisa
+			const searchText = document.querySelector('.search-text');
+			const searchBox = document.querySelector('.search-box');
+			
+			function ManterAberto(){
+				// Verifica se há texto no campo e mantém a barra expandida
+					if (searchText.value.length > 0) {
+						searchBox.classList.add('expanded');
+					} else {
+						searchBox.classList.remove('expanded');
+					}
 			}
 		</script>
 		
