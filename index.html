@@ -104,165 +104,64 @@
 		
 		<!-- Tabela onde pode ficar diferentes estampas de diferentes categorias com preços e etc. -->
 		<div class="carrossel">
-			<table class="tabela2" >
-				<tr class="active">
-				<td width="50px"></td>
-					<td>
-						<div class="box-container">
-							<div  class="box1">
-									<img src="imagens/estampas/estampamao.png" width="300px" style="padding-right:40px;"></img>
-							</div>
+			<div class="slides">
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampamao.png" alt="Imagem 1">
 						</div>
-					</td>
-					<td>
-						<div class="box-container">
-							<div class="box1">
-									<img src="imagens/estampas/estampaarv.png" width="300px" style="padding-right:40px;"></img>
-							</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampaolho.png" alt="Imagem 1">
 						</div>
-					</td>
-					<td>
-						<div class="box-container">
-							<div class="box1">
-									<img src="imagens/estampas/estampacac.png" width="300px" style="padding-right:40px;"></img>
-							</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampaarv.png" alt="Imagem 1">
 						</div>
-					</td>
-				</tr>
-				
-				<tr>
-					<td width="50px"></td>
-					<td>
-						<div class="box-container">
-							<div  class="box1">
-									<p> teste </p>
-									<p> teste </p>
-									<p> teste </p>
-							</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampacl.png" alt="Imagem 1">
 						</div>
-					</td>
-					<td>
-						<div class="box-container">
-							<div class="box1">
-									<p> teste </p>
-									<p> teste </p>
-									<p> teste </p>
-							</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampacac.png" alt="Imagem 1">
 						</div>
-					</td>
-					<td>
-						<div class="box-container">
-							<div class="box1">
-									<p> teste </p>
-									<p> teste </p>
-									<p> teste </p>
-							</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="box-container">
+						<div  class="box1">
+							<img src="imagens/estampas/estampaam.png" alt="Imagem 1">
 						</div>
-					</td>
-				</tr>
-			</table>
-			<!-- Botões para mostrar outras estampas da mesma categoria. -->
-			<button class="prevCar" onclick="mudarImagem(-1)">&#10094;</button>
-			<button class="nextCar" onclick="mudarImagem(1)">&#10095;</button>
+					</div>
+				</div>
+			</div>
+			<!-- Botões de navegação -->
+			<button class="prevCar" onclick="mudarSlide(-3)">&#10094;</button>
+			<button class="nextCar" onclick="mudarSlide(3)">&#10095;</button>
 		</div>
 		
 		<br><br><br>
 	</div>
 		
 
-		<script>
-			//Variáveis.
-			let slideIndex = 1;
-			let onOff = false;
-			let timer = setInterval(ChangeSlides, 8000);
-			
-			//Chama a função para atualizar os slides.
-			showSlides(slideIndex);
-			
-			//Passa os slides para frente.
-			function plusSlides(n) {
-			  showSlides(slideIndex += n);
-			}
-			
-			//Volta os slides para trás.
-			function currentSlide(n) {
-			  showSlides(slideIndex = n);
-			}
-			
-			//Atualiza todas as informações em relação aos slides e muda de slide.
-			function showSlides(n) {
-				let i;
-				let slides = document.getElementsByClassName("mySlides");
-				let dots = document.getElementsByClassName("dot");
-				if (n > slides.length) {slideIndex = 1}    
-				if (n < 1) {slideIndex = slides.length}
-				for (i = 0; i < slides.length; i++) {
-					slides[i].style.display = "none";  
-				}
-				for (i = 0; i < dots.length; i++) {
-					dots[i].className = dots[i].className.replace(" active", "");
-				}
-				slides[slideIndex-1].style.display = "block";  
-				dots[slideIndex-1].className += " active";
-				timer;
-			}
-			
-			//Se não tiver clicado no botão de mudar slides, envia 1 para mudar de slide(verifica se clicou 
-			//através da variável onOff).
-			//Se tiver clicado no botão desativa o timer original, cria um novo e ao acabar o tempo muda o slide e
-			//reseta a variável onOff.
-			function ChangeSlides(){
-				if(onOff == false){
-					plusSlides(1);
-				}
-				else if(onOff == true){
-					clearInterval(timer);
-					timer = setInterval(ChangeSlides, 8000);
-					onOff = false;
-				}
-					
-			}
-		</script>
+		<script src="slide_banner.js"></script>
 		
-		<script>
-			let indiceAtual = 0;
-			const imagens = document.querySelectorAll('.carrossel tr');
-
-			// Função para mudar a imagem
-			function mudarImagem(direcao) {
-				// Oculta a imagem atual
-				imagens[indiceAtual].classList.remove('active');
-				
-				// Atualiza o índice
-				indiceAtual += direcao;
-				
-				// Volta ao início ou fim caso ultrapasse os limites
-				if (indiceAtual < 0) {
-					indiceAtual = imagens.length - 1;
-				} else if (indiceAtual >= imagens.length) {
-					indiceAtual = 0;
-				}
-
-				// Mostra a nova imagem
-				imagens[indiceAtual].classList.add('active');
-			}
-		</script>
+		<script src="slide_banner.js"></script>
 		
-		<script>
-			let timer2 = setInterval(ManterAberto, 1000);
-			// Seleciona o campo de texto e a caixa de pesquisa
-			const searchText = document.querySelector('.search-text');
-			const searchBox = document.querySelector('.search-box');
-			
-			function ManterAberto(){
-				// Verifica se há texto no campo e mantém a barra expandida
-					if (searchText.value.length > 0) {
-						searchBox.classList.add('expanded');
-					} else {
-						searchBox.classList.remove('expanded');
-					}
-			}
-		</script>
+		<script src="carrossel_imagens.js"></script>
 		
 	</body>
 	

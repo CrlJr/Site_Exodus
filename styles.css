@@ -109,6 +109,10 @@
 		filter:	brightness(0.7);
 	}
 	
+	.image-size:hover{
+		filter:	brightness(0.9);
+	}
+	
 	.imagem-size::after {
 		content: "";
 		position: absolute;
@@ -123,95 +127,84 @@
 	/* Caixa de decoracao */
 	
 	.box-container{
-		background-color: rgba(255,255,255,0.3);
+		background-color: rgba(255,255,255,0);
 		height: 400px;
 		width: 300px;
 	}
 	
 	.box1 {
 		border: 0px;
-		padding: 20px;
+		padding: 10px;
 		width: 100%;
-		margin: 40px auto;
+		margin: 30px auto;
 	}
 	
 	.box1:hover {
 		border: 0px;
-		padding: 20px;
+		padding: 10px;
 		height: 400px;	
 		width: 100%;
 		margin: 20px auto;
 		box-shadow: 0px 4px 20px #000000;
 	}
 	
-	/* Animação do botão da caixa */
-	
-	@keyframes mymove {
-	  0%   {left: 0px; top: 0px;}
-	  100% {left: 0px; top: 200px;}
+	/* Estilo do contêiner do carrossel */
+	.carrossel {
+		background-color: rgba(255,255,255,0.1);
+		position: relative;
+		width: 1140px; /* Largura do carrossel para mostrar 4 imagens de 250px cada */
+		overflow: hidden;
+		margin: auto;
+		height: 500px; /* Ajuste conforme a altura das imagens */
 	}
-	
-	
-	/* Carrossel teste */
-		
-        /* Estilo do contêiner do carrossel */
-        .carrossel{
-			background-color: rgba(255,255,255,0);
-            position: relative;
-            width: 1000px;
-			height: 500px;
-            overflow: hidden;
-            border: 0px solid #000;
-            border-radius: 0px;
-			margin: auto;
-        }
-		
-        /* Imagens do carrossel */
-        .carrossel tr{
-			text-align:center;
-            display: none;
-            transition: opacity 0.5s ease;
-			background-color: rgba(0,0,0,0);
-        }
-		
-        /* Imagem ativa */
-        .carrossel tr.active{
-            display: block;
-			background-color: rgba(0,0,0,0);
-        }
-		
-        /* Botões de navegação */
-        .prevCar, .nextCar {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: 50px;
-            height: 50px;
-            margin-top: -25px;
-            color: white;
-            font-size: 30px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            transition: 0.6s ease;
-        }
-		
-        /* Posicionando os botões */
-        .prevCar {
-            left: 0px;
-        }
-		
-        .nextCar {
-            right: 0px;
-        }
-		
-        /* Hover nos botões */
-        .prevCar:hover, .nextCar:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-			color:black;
-        }
+
+	/* Contêiner dos slides */
+	.slides {
+		display: flex;
+		transition: transform 0.5s ease;
+	}
+
+	/* Cada slide */
+	.slide {
+		flex: 0 0 15%; /* 25% do contêiner, para que 4 slides caibam na largura */
+		box-sizing: border-box;
+		padding: 40px; /* Ajuste o espaçamento entre imagens */
+	}
+
+	.slide img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/* Botões de navegação */
+	.prevCar, .nextCar {
+		cursor: pointer;
+		position: absolute;
+		top: 53%;
+		transform: translateY(-50%);
+		width: 50px;
+		height: 50px;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		border-radius: 50%;
+		font-size: 24px;
+		text-align: center;
+		z-index: 1000;
+	}
+
+	.prevCar {
+		left: 10px;
+	}
+
+	.nextCar {
+		right: 10px;
+	}
+
+	.prevCar:hover, .nextCar:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
 	
 	
 	/* Slideshow */
@@ -229,6 +222,7 @@
 	  left: 0%;
 	  margin: auto;
 	}
+	
 
 	/* Next & previous buttons */
 	.prev, .next {
